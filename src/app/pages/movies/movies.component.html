@@ -3,7 +3,7 @@
 <app-filtre (filterChange)="onFilterChange($event)"></app-filtre>
 
 <section>
-    <app-movie *ngFor="let movie of filteredMovies" (movieDelete)="onDelete($event)" [movie]="movie"></app-movie>
+    <app-movie *ngFor="let movie of movies" (movieDelete)="onDelete($event)" [movie]="movie"></app-movie>
 </section>
 
 <button mat-raised-button color="primary" class="button" (click)="openDialog()">Ajouter un film</button>

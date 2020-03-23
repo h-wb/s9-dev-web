@@ -12,27 +12,31 @@ import shortid from 'shortid';
 })
 export class MoviesComponent implements OnInit {
   movies: Movie[] = [];
-  filteredMovies: Movie[] = [];
+  filter = '';
 
   constructor(private movieService: MovieService, public dialog: MatDialog) { }
 
   ngOnInit() {
-    this.movies = this.movieService.getMovies();
-    this.filteredMovies = this.movies;
+    this.updateFilteredMovies();
   }
 
   onDelete(event: Movie): void {
     this.movieService.deleteMovie(event);
-    this.filteredMovies = this.filteredMovies.filter((movie) => movie.id !== event.id);
-    this.movies = this.movieService.getMovies();
+    this.updateFilteredMovies();
   }
 
   onFilterChange(event: string) {
-    this.filteredMovies = this.movies.filter((movie) => movie.name.toLowerCase().includes(event.toLowerCase()))
+    this.filter = event;
+    this.updateFilteredMovies();
+  }
+
+  updateFilteredMovies(): void {
+    const movies = this.movieService.getMovies();
+    this.movies = movies.filter((movie) => movie.name.toLowerCase().includes(this.filter.toLowerCase()));
   }
 
   openDialog(): void {
-    let movie: Movie = {
+    const movie: Movie = {
       id: '',
       description: '',
       image: '',
@@ -52,7 +56,7 @@ export class MoviesComponent implements OnInit {
         }
         movie.id = shortid.generate();
         this.movieService.addMovie(movie);
-        this.movies = this.movieService.getMovies();
+        this.updateFilteredMovies();
       }
     });
   }
