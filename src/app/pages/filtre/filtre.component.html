@@ -1,0 +1,10 @@
+<mat-form-field>
+    <mat-label>Recherche : </mat-label>
+    <input
+        matInput
+        [value]="filter"
+        name="filter"
+        [(ngModel)]="filter"
+        (ngModelChange)="onChange($event)"
+    />
+</mat-form-field>

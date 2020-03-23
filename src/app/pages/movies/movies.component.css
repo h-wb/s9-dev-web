@@ -1,0 +1,19 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+:host button {
+    margin: 20px auto;
+    width: 300px;
+}
+
+:host app-filtre {
+    margin: 20px auto;
+}
+
+:host section > * {
+    margin: 20px auto;
+}

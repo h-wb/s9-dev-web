@@ -1,0 +1,12 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <span>Vidéothèque</span>
+        <span class="example-spacer"></span>
+        <button [routerLink]="['/fav']" class="example-icon" mat-button routerLinkActive="mat-accent">
+            <mat-icon>favorite</mat-icon>
+          </button>
+        <button class="example-icon" (click)="signOut()" mat-button routerLinkActive="mat-accent">
+            <mat-icon>power_settings_new</mat-icon>
+          </button>
+    </mat-toolbar-row>
+</mat-toolbar>

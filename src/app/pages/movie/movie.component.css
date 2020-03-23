@@ -1,0 +1,26 @@
+:host {
+  display: flex;
+  justify-content: center;
+}
+
+.movie-card {
+  max-width: 500px;
+}
+
+.img-container {
+  display: flex;
+  justify-content: center;
+}
+
+img {
+  width: auto;
+  max-height: 300px;
+}
+
+mat-card-actions {
+  display: flex;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}

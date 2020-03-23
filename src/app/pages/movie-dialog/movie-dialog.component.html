@@ -1,0 +1,44 @@
+<h1 mat-dialog-title *ngIf="isUpdate()">
+    Modification de {{ movie.name }}
+</h1>
+<h1 mat-dialog-title *ngIf="!isUpdate()">
+    Ajout d'un film
+</h1>
+<form [formGroup]="profileForm">
+    <div mat-dialog-content>
+        <mat-form-field>
+            <mat-label>Nom</mat-label>
+            <input
+                matInput
+                formControlName="name"
+                placeholder="{{ movie.name }}"
+                value="{{ movie.name }}"
+            />
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>URL de l'image</mat-label>
+            <input
+                matInput
+                formControlName="image"
+                placeholder="{{ movie.image }}"
+                value="{{ movie.image }}"
+            />
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Description</mat-label>
+            <textarea
+                matInput
+                formControlName="description"
+                placeholder="{{ movie.description }}"
+                value="{{ movie.description }}"
+            ></textarea>
+        </mat-form-field>
+    </div>
+    <div mat-dialog-actions>
+        <button mat-button [disabled]="profileForm.invalid" (click)="onSaveClick()">
+        Enregistrer
+        </button>
+        <button mat-button (click)="onCancelClick()">Annuler</button>
+    </div>
+</form>
+  

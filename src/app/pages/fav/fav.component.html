@@ -1,0 +1,5 @@
+<button [routerLink]="['/']" mat-raised-button color="primary" class="button">Retour à l'accueil</button>
+
+<section>
+    <app-movie *ngFor="let movie of userService.user.fav" (movieDelete)="onDelete($event)" [movie]="movie"></app-movie>
+</section>

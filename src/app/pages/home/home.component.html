@@ -1,0 +1,7 @@
+<button [routerLink]="['/movies']" mat-raised-button color="primary" class="button">Voir tous les films</button>
+
+<section>
+    <app-movie *ngIf="movie !== undefined" (movieDelete)="onDelete($event)" [movie]="movie"></app-movie>
+</section>
+
+<button (click)="randomMovie()" mat-raised-button color="primary">Film aléatoire</button>
